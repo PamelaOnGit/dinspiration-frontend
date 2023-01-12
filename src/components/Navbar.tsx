@@ -13,6 +13,9 @@ function Navbar() {
               <Link to="/signup" className="navbar-item">
                 Signup
               </Link>
+              <Link to="/login" className="navbar-item">
+                Login
+              </Link>
               <Link to="/foods" className="navbar-item">
                 All Foods
               </Link>

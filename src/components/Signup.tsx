@@ -2,6 +2,16 @@ import React, { SyntheticEvent, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
+// ! SIGNUP
+// navbar 
+// route
+// we need to send / post to our API
+// store form data as an object with keys and values
+// starting off with empty strings
+// event handlers to change our state
+// - one on the form itself - onSubmit
+// - on each input - onChange - the same function for every field
+
 export default function Signup() { 
   const navigate = useNavigate() 
 
@@ -12,14 +22,24 @@ export default function Signup() {
     email: "" 
   })
 
+  // const [errorData, setErrorData] = useState({
+  //   username: "", 
+  //   password: "", 
+  //   passwordConfirmation: "",
+  //   email: "" 
+  // })
+
   console.log(formData)
 
   async function handleSubmit(e: SyntheticEvent) { 
+    // we need the formData
+    // we need to send the data to our API 
+    // we need another library for posting the data - axios
     e.preventDefault()
     console.log(formData)
     try { 
 await axios.post('/api/signup', formData)
-// navigate('/login')
+navigate('/login')
     }catch(err: any) { 
       console.log(err)
       console.log(err.response.data)

@@ -2,7 +2,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Home from "./components/Home"
 import Navbar from "./components/Navbar"
 import FoodsList from "./components/FoodsList"
-import Signup from "./components/signup"
+import Signup from "./components/Signup"
+import Login from "./components/Login"
 
 
 
@@ -14,7 +15,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/foods" element={<FoodsList />}/>
+
       </Routes>
     </main>
   </Router>
