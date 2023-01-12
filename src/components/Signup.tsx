@@ -12,102 +12,110 @@ import { useNavigate } from 'react-router-dom'
 // - one on the form itself - onSubmit
 // - on each input - onChange - the same function for every field
 
-export default function Signup() { 
-  const navigate = useNavigate() 
+export default function Signup() {
+  const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
-    username: "", 
-    password: "", 
+    username: "",
+    password: "",
     passwordConfirmation: "",
-    email: "" 
+    email: ""
   })
 
-  // const [errorData, setErrorData] = useState({
-  //   username: "", 
-  //   password: "", 
-  //   passwordConfirmation: "",
-  //   email: "" 
-  // })
+  const [errorData, setErrorData] = useState({
+    username: "",
+    password: "",
+    passwordConfirmation: "",
+    email: ""
+  })
 
-  console.log(formData)
+  console.log(errorData)
 
-  async function handleSubmit(e: SyntheticEvent) { 
+  async function handleSubmit(e: SyntheticEvent) {
     // we need the formData
     // we need to send the data to our API 
     // we need another library for posting the data - axios
     e.preventDefault()
     console.log(formData)
-    try { 
-await axios.post('/api/signup', formData)
-navigate('/login')
-    }catch(err: any) { 
-      console.log(err)
-      console.log(err.response.data)
+    try {
+      await axios.post('/api/signup', formData)
+      navigate('/login')
+    } catch (err: any) {
+      setErrorData(err.response.data.errors)
     }
   }
 
-function handleChange(e: any) { 
-  setFormData({
-    ...formData, 
-    [e.target.name]: e.target.value
-  })
-}
+  function handleChange(e: any) {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
 
-return <div className="section">
-<div className="container">
-  <form onSubmit={handleSubmit}>
-    <div className="field">
-      <label className="label">Username</label>
-      <div className="control">
-        <input
-          className="input"
-          type="text"
-          name={'username'}
-          // ! When adding onChange on inputs, good practice
-          // ! to also add the value here.
-          onChange={handleChange}
-          value={formData.username}
-        />
-      </div>
+    setErrorData({
+      ...errorData,
+      [e.target.name]: ""
+    })
+
+  }
+
+  return <div className="section">
+    <div className="container">
+      <form onSubmit={handleSubmit}>
+        <div className="field">
+          <label className="label">Username</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              name={'username'}
+              // ! When adding onChange on inputs, good practice
+              // ! to also add the value here.
+              onChange={handleChange}
+              value={formData.username}
+            />
+            {errorData.username && <small className="has-text-danger">{errorData.username}</small>}
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Email</label>
+          <div className="control">
+            <input
+              className="input"
+              type="text"
+              name={'email'}
+              onChange={handleChange}
+              value={formData.email}
+            />
+            {errorData.email && <small className="has-text-danger">{errorData.email}</small>}
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Password</label>
+          <div className="control">
+            <input
+              className="input"
+              type="password"
+              name={'password'}
+              onChange={handleChange}
+              value={formData.password}
+            />
+            {errorData.password && <small className="has-text-danger">{errorData.password}</small>}
+          </div>
+        </div>
+        <div className="field">
+          <label className="label">Confirm password</label>
+          <div className="control">
+            <input
+              className="input"
+              type="password"
+              name={'passwordConfirmation'}
+              onChange={handleChange}
+              value={formData.passwordConfirmation}
+            />
+          </div>
+        </div>
+        <button className="button">Submit</button>
+      </form>
     </div>
-    <div className="field">
-      <label className="label">Email</label>
-      <div className="control">
-        <input
-          className="input"
-          type="text"
-          name={'email'}
-          onChange={handleChange}
-          value={formData.email}
-        />
-      </div>
-    </div>
-    <div className="field">
-      <label className="label">Password</label>
-      <div className="control">
-        <input
-          className="input"
-          type="password"
-          name={'password'}
-          onChange={handleChange}
-          value={formData.password}
-        />
-      </div>
-    </div>
-    <div className="field">
-      <label className="label">Confirm password</label>
-      <div className="control">
-        <input
-          className="input"
-          type="password"
-          name={'passwordConfirmation'}
-          onChange={handleChange}
-          value={formData.passwordConfirmation}
-        />
-      </div>
-    </div>
-    <button className="button">Submit</button>
-  </form>
-</div>
-</div>
+  </div>
 }
