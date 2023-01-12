@@ -19,17 +19,18 @@ export default function Signup() {
     username: "",
     password: "",
     passwordConfirmation: "",
-    email: ""
+    email: "", 
+
   })
 
   const [errorData, setErrorData] = useState({
     username: "",
     password: "",
     passwordConfirmation: "",
-    email: ""
+    email: "", 
   })
 
-  console.log(errorData)
+  console.log("here is the errorData",errorData)
 
   async function handleSubmit(e: SyntheticEvent) {
     // we need the formData
@@ -112,6 +113,7 @@ export default function Signup() {
               onChange={handleChange}
               value={formData.passwordConfirmation}
             />
+             {errorData.passwordConfirmation && <small className="has-text-danger">{errorData.passwordConfirmation}</small>}
           </div>
         </div>
         <button className="button">Submit</button>
