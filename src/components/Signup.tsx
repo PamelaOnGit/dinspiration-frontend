@@ -40,7 +40,7 @@ export default function Signup() {
     console.log(formData)
     try {
       await axios.post('/api/signup', formData)
-      navigate('/login')
+      navigate('/my-options')
     } catch (err: any) {
       setErrorData(err.response.data.errors)
     }

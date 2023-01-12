@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar"
 import FoodsList from "./components/FoodsList"
 import Signup from "./components/Signup"
 import Login from "./components/Login"
+import MyOptions from "./components/MyOptions"
 
 
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/foods" element={<FoodsList />}/>
+        <Route path="/my-options" element={<MyOptions />}/>
 
       </Routes>
     </main>
