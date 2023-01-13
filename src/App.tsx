@@ -5,6 +5,7 @@ import FoodsList from "./components/FoodsList"
 import Signup from "./components/Signup"
 import Login from "./components/Login"
 import MyOptions from "./components/MyOptions"
+import MyLifestyle from "./components/MyLifestyle"
 
 
 
@@ -17,9 +18,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/foods" element={<FoodsList />}/>
+        <Route path="/my-foods" element={<FoodsList />}/>
         <Route path="/my-options" element={<MyOptions />}/>
 
+        <Route path="/my-lifestyle" element={<MyLifestyle />}/>
       </Routes>
     </main>
   </Router>

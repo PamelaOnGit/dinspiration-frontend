@@ -1,11 +1,11 @@
 import React, { SyntheticEvent, useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
-export default function Signup() {
-  // const navigate = useNavigate()
+export default function MyOptions() {
+  const navigate = useNavigate()
 
-  const [userOptions, setUserOptions] = useState(["anything"])
+  const [userOptions, setUserOptions] = useState([""])
   const [buttonClass, setButtonClass] = useState("button is-light")
 
   console.log(userOptions)
@@ -13,7 +13,6 @@ export default function Signup() {
 
   async function handleSubmit(e: SyntheticEvent) {
     e.preventDefault()
-    console.log("form submits")
     if (userOptions.length > 1) {
     setUserOptions(
       userOptions.filter(a => a !== "anything")
@@ -27,6 +26,7 @@ export default function Signup() {
       const { data } = await axios.patch('/api/my-options', {
         "userOptions": userOptions
       }, {headers: {"Authorization": `Bearer ${token}`}}  )
+      navigate('/my-lifestyle')
     } catch(err) { 
       console.log(err)
     }
@@ -49,10 +49,6 @@ export default function Signup() {
       )
       e.target.className = "button is-light"
     }
-    if (userOptions.length === 0) { 
-      setUserOptions(["anything"])
-    }
-
   }
 
 

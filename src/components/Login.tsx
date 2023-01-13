@@ -26,7 +26,7 @@ export default function Login() {
       const token: string = data.token
       localStorage.setItem('token', token)
       console.log(token)
-      navigate('/foods')
+      navigate('/my-options')
     } catch (err: any) {
       console.log("this is the right info", err.response.data, err.message)
       setErrorData(err.response.data)
