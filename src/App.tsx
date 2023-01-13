@@ -8,6 +8,9 @@ import InspirationsList from "./components/InspirationsList"
 import MyFoods from "./components/MyFoods"
 import ShowInspiration from "./components/ShowInspiration"
 
+import MyOptions from "./components/MyOptions"
+import MyLifestyle from "./components/MyLifestyle"
+import AddInspiration from "./components/AddInspiration"
 
 
 function App() {
@@ -22,6 +25,10 @@ function App() {
         <Route path="/my-foods" element={<MyFoods />}/>
 				<Route path="/inspirationslist" element={<InspirationsList />} />
         <Route path="/showinspiration" element={<ShowInspiration />} />
+        <Route path="/my-foods" element={<FoodsList />}/>
+        <Route path="/my-options" element={<MyOptions />}/>
+        <Route path="/my-lifestyle" element={<MyLifestyle />}/>
+        <Route path="/add-inspiration/:foodId" element={<AddInspiration />}/>
       </Routes>
     </main>
   </Router>
@@ -30,3 +37,5 @@ function App() {
 
 
 export default App
+
+// ! Pam changed '/foods' route to '/my-foods'
