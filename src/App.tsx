@@ -29,3 +29,5 @@ function App() {
 }
 
 export default App
+
+// ! Pam changed '/foods' route to '/my-foods'
