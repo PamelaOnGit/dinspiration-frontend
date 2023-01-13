@@ -4,9 +4,8 @@ import Navbar from "./components/Navbar"
 import FoodsList from "./components/FoodsList"
 import Signup from "./components/Signup"
 import Login from "./components/Login"
-// import NewInspirationsList from "./components/NewInspirationsList"
-// import InspirationsList from "./components/NewInspirationsList"
 import InspirationsList from "./components/InspirationsList"
+
 
 
 function App() {
