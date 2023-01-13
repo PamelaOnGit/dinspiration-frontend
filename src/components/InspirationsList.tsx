@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 // import { IInspiration } from "./interfaces/inspirations"
-import Inspirations from "./Inspirations"
+import Inspirations from "./Inspiration"
 
 export interface IInspiration {
 	_id: string,

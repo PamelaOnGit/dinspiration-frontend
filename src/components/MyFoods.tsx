@@ -1,10 +1,10 @@
 import React from "react"
 import { IFood } from "../interfaces/food"
 import Food from "./Food"
-
+import axios from "axios"
 type Foods = null | Array<IFood>
 
-function FoodsList() { 
+function MyFoods() { 
   const [Foods, updateFoods ] = React.useState<Foods>(null)
   console.log(Foods)
 
@@ -36,4 +36,4 @@ function FoodsList() {
 
 }
 
-export default FoodsList
+export default MyFoods

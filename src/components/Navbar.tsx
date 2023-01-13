@@ -16,9 +16,12 @@ function Navbar() {
               <Link to="/login" className="navbar-item">
                 Login
               </Link>
-              <Link to="/foods" className="navbar-item">
-                All Foods
+              <Link to="/my-foods" className="navbar-item">
+                My Foods
               </Link>
+							<Link to="/showinspiration" className="navbar-item">
+								Display Inspiration
+							</Link>
 							<Link to="/inspirationslist" className="navbar-item">
 								All Inspirations
 							</Link>
