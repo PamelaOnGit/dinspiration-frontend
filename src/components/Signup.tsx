@@ -56,7 +56,6 @@ export default function Signup() {
       ...errorData,
       [e.target.name]: ""
     })
-
   }
 
   return <div className="section">

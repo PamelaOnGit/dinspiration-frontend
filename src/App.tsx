@@ -6,7 +6,7 @@ import Signup from "./components/Signup"
 import Login from "./components/Login"
 import MyOptions from "./components/MyOptions"
 import MyLifestyle from "./components/MyLifestyle"
-
+import AddInspiration from "./components/AddInspiration"
 
 
 function App() {
@@ -20,8 +20,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/my-foods" element={<FoodsList />}/>
         <Route path="/my-options" element={<MyOptions />}/>
-
         <Route path="/my-lifestyle" element={<MyLifestyle />}/>
+        <Route path="/add-inspiration/:foodId" element={<AddInspiration />}/>
       </Routes>
     </main>
   </Router>

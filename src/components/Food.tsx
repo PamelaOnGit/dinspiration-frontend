@@ -3,7 +3,9 @@ import { IFood } from "../interfaces/food"
 
 function Food({ _id, name, imageURL }: IFood) {
   return <div className="column is-one-quarter-desktop is-one-third-tablet">
+
     <Link to={`/food/${_id}`}>
+
       <div className="card">
         <div className="card-header">
           <div className="card-header-title">{name}</div>
