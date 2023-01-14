@@ -1,21 +1,60 @@
 import React from "react"
-import { useParams, Navigate, useNavigate } from "react-router-dom"
+import { useParams, Navigate, useNavigate, Routes, Router } from "react-router-dom"
 import { IFood } from "../interfaces/food"
 import Food from "./Food"
 import { IFoodScreen } from "./foodScreenInterface"
 import axios from "axios"
 
+
+
+
 type Food = IFood
 
+//
+
+interface IInspiration {
+	_id: string,
+	name: string,
+	recipeURL: string,
+	description: string,
+	userImage: string,
+	userId: string,
+	primaryFood: string,
+	secondaryFood: string
+
+}
+
+type Inspirations = null | Array<IInspiration>
+
+//
+
 function FoodScreen(){
+
 
   const {id} = useParams()
   console.log(id)
 
   const [FoodDetails, showFoodDetails ] = React.useState<Food>()
-  console.log(FoodDetails)
+  // console.log(FoodDetails)
   const arrayOptions = FoodDetails?.options
-  console.log(arrayOptions)
+  // console.log(arrayOptions)
+
+  const [inspirationsArray, updateInspirations] = React.useState<Inspirations>(null)
+  React.useEffect(() => { 
+
+    async function fetchInspirations() { 
+
+  const token = localStorage.getItem('token')
+  console.log(token)
+
+      const resp = await axios.get(`/api/inspirations`, { headers: {"Authorization": `Bearer ${token}` } })
+      const InspirationData = await resp.data
+      updateInspirations(InspirationData)
+      console.log(InspirationData)
+    }
+
+    fetchInspirations()
+  }, [])
 
   const [addInspirationButton, goToInspirationForm] = React.useState(false)
   console.log(addInspirationButton)
@@ -90,6 +129,16 @@ fetchFoodDetails()
               {FoodDetails?.lifestyle.lowCarb && <p className="subtitle is-6">{"Low carb"}</p>}
               {FoodDetails?.lifestyle.lowGi && <p className="subtitle is-6">{"Low GI"}</p>}
         </div>
+      </div>
+      <div className="card">
+					<div className="columns is-multiline">
+						{/* {inspirationsArray?.map((inspiration: Inspirations) => {
+							return <Inspiration
+								key={inspiration.name}
+								{...inspiration}
+							/>
+						})} */}
+					</div>
       </div>
       <button className="button is-link" onClick={handleClick}>Add an inspiration</button>
   </div>

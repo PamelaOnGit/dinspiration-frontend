@@ -21,14 +21,14 @@ function Navbar() {
               </Link>
 							{/* <Link to="/showinspiration" className="navbar-item">
 								Display Inspiration
-							</Link>
-							<Link to="/inspirationslist" className="navbar-item">
+							</Link> */}
+							{/* <Link to="/inspirationslist" className="navbar-item">
 								All Inspirations
 							</Link> */}
               {/* We can move this link into the single food display page */}
-              <Link to="/add-inspiration/:foodId" className="navbar-item">
+              {/* <Link to="/add-inspiration/:foodId" className="navbar-item">
               Add Inspiration
-              </Link>
+              </Link> */}
             </div>
           </div>
         </nav>
