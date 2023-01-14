@@ -11,7 +11,7 @@ import ShowInspiration from "./components/ShowInspiration"
 import MyOptions from "./components/MyOptions"
 import MyLifestyle from "./components/MyLifestyle"
 import AddInspiration from "./components/AddInspiration"
-
+import FoodScreen from "./components/FoodScreen"
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
 				<Route path="/inspirationslist" element={<InspirationsList />} />
         <Route path="/showinspiration" element={<ShowInspiration />} />
         <Route path="/my-foods" element={<FoodsList />}/>
+        <Route path="/food/:id" element={<FoodScreen />} />
         <Route path="/my-options" element={<MyOptions />}/>
         <Route path="/my-lifestyle" element={<MyLifestyle />}/>
         <Route path="/add-inspiration/:foodId" element={<AddInspiration />}/>

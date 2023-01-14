@@ -15,6 +15,7 @@ import React from 'react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+<<<<<<< HEAD
 	server: {
 		proxy: {
 			'/api': {
@@ -23,4 +24,15 @@ export default defineConfig({
 			},
 		}
 	}
+=======
+  server: {
+    proxy: {
+      // with options
+      '/api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true
+      },
+    }
+  }
+>>>>>>> main
 })
