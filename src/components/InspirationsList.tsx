@@ -1,3 +1,5 @@
+export {}
+
 // import React from "react"
 // import { Link } from "react-router-dom"
 // import { IInspiration } from "./interfaces/inspirations"

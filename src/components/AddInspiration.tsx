@@ -1,21 +1,24 @@
 import React, { SyntheticEvent, useState } from 'react'
 import axios from 'axios'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { baseUrl } from '../config'
 
 
 export default function AddInspiration() {
 const navigate = useNavigate()
 
 
-const { foodId } = useParams()
-console.log(foodId)
+const { id } = useParams()
+// const foodId = "63c075d01b4c96f87a5253cc"
+
+
+
 
   const [formData, setFormData] = useState({
     name: "",
     recipeURL: "",
     description: "",
     userImage: "",
-    primaryFood: "63c075d01b4c96f87a5253cc"
   })
 
 
@@ -38,8 +41,8 @@ console.log(foodId)
       const token = localStorage.getItem('token')
       console.log(token)
       console.log(formData)
-      console.log(formData.primaryFood)
-      const {data} = await axios.post(`/api/inspiration/${foodId}`,
+      // console.log(formData.primaryFood)
+      const {data} = await axios.post(`${baseUrl}/inspiration/${id}`,
       formData, 
       {headers: {"Authorization": `Bearer ${token}`}})
 

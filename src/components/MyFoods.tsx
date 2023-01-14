@@ -2,6 +2,8 @@ import React from "react"
 import { IFood } from "../interfaces/food"
 import Food from "./Food"
 import axios from "axios"
+import {baseUrl} from "../config"
+
 
 type Foods = null | Array<IFood>
 
@@ -23,7 +25,7 @@ function MyFoods() {
   const token = localStorage.getItem('token')
   console.log(token)
 
-      const resp = await axios.get("/api/my-foods", { headers: {"Authorization": `Bearer ${token}` } })
+      const resp = await axios.get(`${baseUrl}/my-foods`, { headers: {"Authorization": `Bearer ${token}` } })
       const FoodsData = await resp.data
       updateFoods(FoodsData)
     }

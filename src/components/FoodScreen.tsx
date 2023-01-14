@@ -5,7 +5,8 @@ import Food from "./Food"
 import { IFoodScreen } from "./foodScreenInterface"
 import axios from "axios"
 
-
+import { Link } from 'react-router-dom'
+import { baseUrl } from "../config"
 
 
 type Food = IFood
@@ -47,7 +48,7 @@ function FoodScreen(){
   const token = localStorage.getItem('token')
   console.log(token)
 
-      const resp = await axios.get(`/api/inspirations`, { headers: {"Authorization": `Bearer ${token}` } })
+      const resp = await axios.get(`${baseUrl}/inspirations`, { headers: {"Authorization": `Bearer ${token}` } })
       const InspirationData = await resp.data
       updateInspirations(InspirationData)
       console.log(InspirationData)
@@ -104,7 +105,7 @@ function FoodScreen(){
   const token = localStorage.getItem('token')
   console.log(token)
 
-      const resp = await axios.get(`/api/food/${id}`, { headers: {"Authorization": `Bearer ${token}` } })
+      const resp = await axios.get(`${baseUrl}/food/${id}`, { headers: {"Authorization": `Bearer ${token}` } })
       const FoodsData = await resp.data
       showFoodDetails(FoodsData)
     }
@@ -140,7 +141,8 @@ fetchFoodDetails()
 						})} */}
 					</div>
       </div>
-      <button className="button is-link" onClick={handleClick}>Add an inspiration</button>
+      <Link to={`/add-inspiration/${id}`}><button className="button is-link">Add an inspiration</button></Link>
+      
   </div>
 }
 

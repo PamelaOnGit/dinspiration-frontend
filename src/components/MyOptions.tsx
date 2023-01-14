@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from 'react'
 import axios from 'axios'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { baseUrl } from '../config'
 
 export default function MyOptions() {
   const navigate = useNavigate()
@@ -23,7 +24,7 @@ export default function MyOptions() {
     }
     try { 
       const token = localStorage.getItem('token')
-      const { data } = await axios.patch('/api/my-options', {
+      const { data } = await axios.patch(`${baseUrl}/my-options`, {
         "userOptions": userOptions
       }, {headers: {"Authorization": `Bearer ${token}`}}  )
       navigate('/my-lifestyle')

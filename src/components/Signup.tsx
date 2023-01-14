@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { baseUrl } from '../config'
 
 // ! SIGNUP
 // navbar 
@@ -39,7 +40,7 @@ export default function Signup() {
     e.preventDefault()
     console.log(formData)
     try {
-      await axios.post('/api/signup', formData)
+      await axios.post(`${baseUrl}/signup`, formData)
       navigate('/my-options')
     } catch (err: any) {
       setErrorData(err.response.data.errors)

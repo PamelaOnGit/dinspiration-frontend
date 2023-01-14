@@ -2,6 +2,7 @@ import React, { SyntheticEvent, useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { IData } from "../interfaces/data"
+import { baseUrl } from '../config'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -21,12 +22,12 @@ export default function Login() {
     e.preventDefault()
     console.log(formData)
     try {
-      const { data } = await axios.post('/api/login', formData)
+      const { data } = await axios.post(`${baseUrl}/login`, formData)
       console.log(data)
       const token: string = data.token
       localStorage.setItem('token', token)
       console.log(token)
-      navigate('/my-foods')
+      navigate('/my-options')
     } catch (err: any) {
       console.log("this is the right info", err.response.data, err.message)
       setErrorData(err.response.data)

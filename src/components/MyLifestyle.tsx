@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from 'react'
 import axios from 'axios'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { baseUrl } from '../config'
 
 
 export default function MyLifestyle() {
@@ -16,7 +17,7 @@ export default function MyLifestyle() {
     console.log('You submitted!')
     try { 
       const token = localStorage.getItem('token')
-      const { data } = await axios.patch('/api/my-lifestyle', {
+      const { data } = await axios.patch(`${baseUrl}/my-lifestyle`, {
         "userLifestyle": userLifestyle
       }, {headers: {"Authorization": `Bearer ${token}`}}  )
       navigate('/my-foods')

@@ -19,16 +19,6 @@ function Navbar() {
               <Link to="/my-foods" className="navbar-item">
                 My Foods
               </Link>
-							{/* <Link to="/showinspiration" className="navbar-item">
-								Display Inspiration
-							</Link> */}
-							{/* <Link to="/inspirationslist" className="navbar-item">
-								All Inspirations
-							</Link> */}
-              {/* We can move this link into the single food display page */}
-              {/* <Link to="/add-inspiration/:foodId" className="navbar-item">
-              Add Inspiration
-              </Link> */}
             </div>
           </div>
         </nav>
