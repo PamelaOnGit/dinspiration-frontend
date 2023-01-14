@@ -1,20 +1,27 @@
 import { Link } from "react-router-dom"
 
-function Navbar() {
+function Navbar() { 
   return (
     <>
-      <header>
+          <header>
         <nav className="navbar is-dark">
           <div className="container">
             <div className="navbar-brand">
               <Link to="/" className="navbar-item">
                 Home
               </Link>
-              <Link to="/isnpirations" className="navbar-item">
-                Inspirations
+              <Link to="/signup" className="navbar-item">
+                Signup
               </Link>
-							<Link to="/myisnpirations" className="navbar-item">
-                My Inspirations
+              <Link to="/login" className="navbar-item">
+                Login
+              </Link>
+              <Link to="/my-foods" className="navbar-item">
+                My Foods
+              </Link>
+              {/* We can move this link into the single food display page */}
+              <Link to="/add-inspiration/:foodId" className="navbar-item">
+              Add Inspiration
               </Link>
             </div>
           </div>
