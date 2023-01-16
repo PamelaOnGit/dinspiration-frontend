@@ -4,12 +4,14 @@ import { IFood } from "../interfaces/food"
 import Food from "./Food"
 import { IFoodScreen } from "./foodScreenInterface"
 import axios from "axios"
+import Inspiration from "./Inspiration"
 
 import { Link } from 'react-router-dom'
 import { baseUrl } from "../config"
 
 
 type Food = IFood
+
 
 interface IInspiration {
   _id: string,
@@ -18,8 +20,8 @@ interface IInspiration {
   description: string,
   userImage: string,
 	userId: string,
-	primaryFood: string,
-	secondaryfood: string
+	primaryFood: string, 
+  secondaryFood: string
   }
 
 
@@ -79,6 +81,8 @@ function FoodScreen(){
 fetchFoodDetails()
   }, [])
 
+
+
   return <div className="column is-one-third-desktop is-one-third-tablet">
       <div className="card">
         <div className="card-image">
@@ -99,15 +103,14 @@ fetchFoodDetails()
         <Link to={`/add-inspiration/${id}`}><button className="button is-link">Add an inspiration</button></Link>
       </div>
       
-      {/* <div className="container">
       <div className="columns is-multiline">
-        {Inspirations?.map((inspiration: any) => {
+        {inspirations?.map((food: any) => {
           return <Inspiration 
-            key={inspiration._id}
-            {...inspiration}
+            key={food._id}
+            {...food}
           />
         })}
-      </div> */}
+      </div>
 
 
   </div>
