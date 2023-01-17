@@ -50,7 +50,7 @@ function FoodScreen(){
   const token = localStorage.getItem('token')
   console.log(token)
 
-      const resp = await axios.get(`${baseUrl}/inspirations`, { headers: {"Authorization": `Bearer ${token}` } })
+      const resp = await axios.get(`${baseUrl}/inspirationsbyfood/${id}`, { headers: {"Authorization": `Bearer ${token}` } })
       const inspirationsData = await resp.data
       setInspirations(inspirationsData)
       
