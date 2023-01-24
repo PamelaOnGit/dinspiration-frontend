@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { IData } from "../interfaces/data"
 import { baseUrl } from '../config'
 
-export default function Login() {
+export default function Login({ fetchUser }: { fetchUser: Function }) {
   const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
@@ -26,7 +26,8 @@ export default function Login() {
       console.log(data)
       const token: string = data.token
       localStorage.setItem('token', token)
-      console.log(token)
+      // Here we fetch the user, now that they are logged in 
+      fetchUser() 
       navigate('/my-options')
     } catch (err: any) {
       console.log("this is the right info", err.response.data, err.message)

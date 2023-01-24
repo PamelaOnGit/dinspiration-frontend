@@ -1,24 +1,44 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { IUser } from "../interfaces/user"
 
-function Navbar() { 
+interface NavbarProps { 
+  user: IUser | null
+  setUser: Function
+}
+
+function Navbar({ user, setUser }: NavbarProps) { 
+
+  const navigate = useNavigate() 
+
+  function logout() { 
+    localStorage.removeItem('token')
+    setUser(null)
+    navigate('/')
+  }
+
+
   return (
     <>
           <header>
-        <nav className="navbar is-dark">
-          <div className="container">
-            <div className="navbar-brand">
+        <nav className="navbar is-centered is-success title has-text-centered">
+          <div className="container has-text-centered">
+            <div className="navbar-brand has-text-centered">
               <Link to="/" className="navbar-item">
                 Home
               </Link>
-              <Link to="/signup" className="navbar-item">
+              {!user && <Link to="/signup" className="navbar-item">
                 Signup
-              </Link>
-              <Link to="/login" className="navbar-item">
+              </Link>}
+              {!user && <Link to="/login" className="navbar-item">
                 Login
-              </Link>
-              <Link to="/my-foods" className="navbar-item">
+              </Link>}
+              {user && <Link to="/my-foods" className="navbar-item">
                 My Foods
-              </Link>
+              </Link>}
+              { user && <button onClick={logout} className="button navbar-item is-ghost">
+                Logout
+                </button>}
+              
             </div>
           </div>
         </nav>

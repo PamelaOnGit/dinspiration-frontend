@@ -93,12 +93,12 @@ fetchFoodDetails()
         <div className="card-content">
           <div className="media-content"></div>
             <p className="title is-4">{FoodDetails?.name}</p>
-            <p className="subtitle is-6">{FoodDetails?.options}</p>
+            {/* <p className="subtitle is-6">{FoodDetails?.options}</p>
               {FoodDetails?.lifestyle.highProtein && <p className="subtitle is-6">{"High protein"}</p>}
               {FoodDetails?.lifestyle.keto && <p className="subtitle is-6">{"Keto"}</p>}
               {FoodDetails?.lifestyle.lowCalorie && <p className="subtitle is-6">{"Low calorie"}</p>}
               {FoodDetails?.lifestyle.lowCarb && <p className="subtitle is-6">{"Low carb"}</p>}
-              {FoodDetails?.lifestyle.lowGi && <p className="subtitle is-6">{"Low GI"}</p>}
+              {FoodDetails?.lifestyle.lowGi && <p className="subtitle is-6">{"Low GI"}</p>} */}
         </div>
         <Link to={`/add-inspiration/${id}`}><button className="button is-link">Add an inspiration</button></Link>
       </div>

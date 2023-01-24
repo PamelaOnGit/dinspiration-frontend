@@ -6,5 +6,12 @@ $family-sans-serif: "Roboto", sans-serif;
 // ! example on how to customize, skip to section "Add your own Bulma styles":
 // https://bulma.io/documentation/customize/with-sass-cli/
 
+.title { 
+  font-family: 'Cedarville Cursive', cursive;
+  font-size: 1000; 
+}
+
+
+
 // ? Import bulma
 @import "../../node_modules/bulma/bulma.sass";
